@@ -1,0 +1,13 @@
+<% if logged_in? %>
+<%= link_to("Logout", "/logout", method: :delete) %>
+<% end %>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
