@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DbcOverflowRails</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>DbcOverflowRails</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
 
-  <body>
+<body>
+  <nav>
+    <div>
+      <ul>
+        <% if logged_in? %>
+        <li><a href="/users/<%=current_user.id%>"><%= current_user.username %></a></li>
+        <li><%= link_to("Logout", "/logout", method: :delete) %></li>
+        <% else %>
+        <li><a href="/login">login</a></li>
+        <li><a href="/users/new">sign up</a></li>
+        <% end %>
+        <li><a href="/">home</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div>
     <%= yield %>
-  </body>
+  </div>
+</body>
 </html>
