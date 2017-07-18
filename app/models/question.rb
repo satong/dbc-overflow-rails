@@ -5,6 +5,8 @@ class Question < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
 
+  validates :title, :body, presence: true
+
   def time_since_creation
     ((Time.now - created_at) / 3600).round
   end
