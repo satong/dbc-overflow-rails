@@ -13,13 +13,13 @@
     <div>
       <ul>
         <% if logged_in? %>
-        <li><a href="/users/<%=current_user.id%>"><%= current_user.username %></a></li>
-        <li><%= link_to("Logout", "/logout", method: :delete) %></li>
+        <li><%= link_to "#{current_user.username}", user_path(current_user)%></li>
+        <li><%= link_to "logout", logout_path, method: :delete %></li>
         <% else %>
-        <li><a href="/login">login</a></li>
-        <li><a href="/users/new">sign up</a></li>
+        <li><%= link_to "login", new_login_path%></li>
+        <li><%= link_to "sign up", new_user_path%></li>
         <% end %>
-        <li><a href="/">home</a></li>
+        <li><%= link_to "home", root_path%></li>
       </ul>
     </div>
   </nav>
